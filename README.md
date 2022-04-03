@@ -8,13 +8,15 @@ Requirements
 
 Running
 ===
-there are two different methods to running this application
+there are two different methods to running this application \
+both of these methods will require that you run it from the command line
 1. run the .jar file provided in the releases tab
-2. build the application using maven and execute the built jar file
+2. [build](#building) the application using maven and execute the built jar file in cmd
+3. use the command `mvn exec:java` in the project root
 
 Building
 ===
 Steps: 
 1. use the command `mvn clean install` to build into a jar file. 
-2. The final jar file will be between 10 and 15 megabytes and in the target folder named `javafx-editor-1.0.0.jar`
-you can then run it with `java -jar javafx-editor-1.0.0.jar`
+2. The final jar file will be between 10 and 15 megabytes and in the target folder named `Blackjack-jar-with-dependencies.jar`
+you can then run it with `java -jar Blackjack-jar-with-dependencies.jar`
