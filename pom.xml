@@ -6,7 +6,7 @@
 
   <groupId>com.alexcomeau</groupId>
   <artifactId>java-blackjack</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
 
   <name>java-blackjack</name>
 
@@ -17,42 +17,40 @@
   </properties>
 
   <build>
-    <pluginManagement>
       <plugins>
         <plugin>
-          <artifactId>maven-jar-plugin</artifactId>
-          <version>3.2.2</version>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>exec-maven-plugin</artifactId>
+          <version>1.2.1</version>
           <configuration>
+              <mainClass>com.alexcomeau.App</mainClass>
+          </configuration>
+        </plugin>
+        
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <executions>
+            <execution>
+              <id>make-assembly</id>
+              <phase>package</phase>
+              <goals>
+                <goal>single</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <descriptorRefs>
+              <descriptorRef>jar-with-dependencies</descriptorRef>
+            </descriptorRefs>
+            <finalName>Blackjack</finalName>
             <archive>
               <manifest>
-                <mainClass>
-                  com.alexcomeau.App
-                </mainClass>
+                <mainClass>com.alexcomeau.App</mainClass>
               </manifest>
             </archive>
           </configuration>
         </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-shade-plugin</artifactId>
-          <version>3.2.0</version>
-          <executions>
-            <execution>
-              <phase>package</phase>
-              <goals>
-                <goal>shade</goal>
-              </goals>
-              <configuration>
-                <transformers>
-                  <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                    <mainClass>com.alexcomeau.App</mainClass>
-                  </transformer>
-                </transformers>
-              </configuration>
-            </execution>
-          </executions>
-        </plugin>
       </plugins>
-    </pluginManagement>
   </build>
 </project>
